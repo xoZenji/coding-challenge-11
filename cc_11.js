@@ -1,3 +1,4 @@
+// Task 1: Created Book Class
 class Book {
     constructor(title, author, isbn, copies) {
       this.title = title;
