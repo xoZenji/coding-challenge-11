@@ -49,3 +49,21 @@ console.log(borrower1.borrowedBooks); // [ 'The Great Gatsby' ]
 
 borrower1.returnBook("The Great Gatsby");
 console.log(borrower1.borrowedBooks); // []
+
+// Task 3: Created Library Class
+class Library {
+  constructor() {
+      this.books = [];
+      this.borrowers = [];
+  }
+  addBook(book) {
+      this.books.push(book);
+  }
+  listBooks() {
+      this.books.map(book => console.log(book.getDetails()));
+  }
+}; // Created class Library and added the constructor, addBook, and listBooks methods which adds books to the books array and lists the details of each book, then prints it to the console.
+
+const library = new Library();
+library.addBook(book1);
+library.listBooks(); //Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
