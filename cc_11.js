@@ -62,8 +62,25 @@ class Library {
   listBooks() {
       this.books.map(book => console.log(book.getDetails()));
   }
+//Task 4: Implemented Book Borrowing
+  lendBook(borrowerId, isbn) {
+    const book = this.books.find(book => book.isbn === isbn);
+    const borrower = this.borrowers.find(borrower => borrower.borrowerId === borrowerId);
+    
+    if (book && borrower && book.copies > 0) {
+      book.updateCopies(-1);
+      borrower.borrowBook(book.title);
+      }
+  }
 }; // Created class Library and added the constructor, addBook, and listBooks methods which adds books to the books array and lists the details of each book, then prints it to the console.
 
 const library = new Library();
 library.addBook(book1);
 library.listBooks(); //Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
+
+// Task 4 Output
+library.lendBook(201, 123456);
+console.log(book1.getDetails());
+// Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 3"
+console.log(borrower1.borrowedBooks);
+// Expected output: ["The Great Gatsby"]
